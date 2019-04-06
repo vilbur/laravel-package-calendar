@@ -1,0 +1,45 @@
+{
+    "name": "vilbur/calendar",
+    "type": "library",
+    "description": "Calendar for development of packages for Laravel",
+    "keywords": [
+        "vilbur",
+        "Calendar"
+    ],
+    "homepage": "https://github.com/vilbur/laravel-package-calendar",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": ":vilbur",
+            "email": "cerny.vil@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Vilbur\\Calendar\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vilbur\\Calendar\\": "tests/"
+        }
+    },
+    "extra": {
+		"laravel": {
+            "providers": [
+                "Vilbur\\Calendar\\Providers\\CalendarServiceProvider"
+            ],
+            "aliases": {
+				"Calendar":"Vilbur\\Calendar\\Calendar"
+			}
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
