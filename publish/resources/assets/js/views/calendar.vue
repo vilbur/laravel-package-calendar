@@ -1,40 +1,47 @@
 <template>
 	<div>
-		<div v-for="(model, index) in models" class="hero"  >
-			<h1 class="title is-1 has-text-centered centered">
-				Calendar {{ model.id }}
-			</h1>
-		</div>
+	
+		<h1 class="title is-1 has-text-centered">Calendar published</h1>
+	
+		<full-calendar :events="events"></full-calendar>
 	</div>
+
+	
 </template>
 
-
-<style>
-
-</style>
-
-
 <script>
-	import CalendarDetail from '../../components/calendar/calendar-detail';
-
-	export default {
-
-		data(){
-			return {
-				models:	[],
-			};
-		},
-		created(){
-			axios.get('/db/calendar').then( response => this.models = response.data );
-		},
-		mounted(){
-
-		},
-		methods:{
-
-		},
-		components:{
-			'calendar-detail': CalendarDetail,
+	
+export default {
+	
+	data() {
+		return {
+		  events: [
+			{
+				title  : 'event1',
+				start  : this.getTimeStamp(),
+			},
+			{
+				title  : 'event2',
+				start  : this.getTimeStamp(),
+				end    : this.getTimeStamp(),
+			},
+			{
+				title  : 'event3',
+				start  : this.getTimeStamp()+'T12:30:00',
+				allDay : false,
+			},
+		  ]
 		}
-	};
-</script> 
+	 },
+  methods: {
+    getTimeStamp: function ()
+	{
+		var currentDate = new Date();
+		return currentDate.getFullYear() + "-" +(currentDate.getMonth() + 1) + "-" + (currentDate.getDate() + 1);
+    }
+  }
+	 
+} 
+</script>
+  
+ 
